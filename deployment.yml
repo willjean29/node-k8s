@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-k8s-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-k8s-app
+  template:
+    metadata:
+      labels:
+        app: node-k8s-app
+    spec:
+      containers:
+        - name: node-k8s-container
+          image: 17200082/node-k8s-app:v1
+          resources:
+            limits:
+              cpu: "1"
+              memory: "500Mi"
+            requests:
+              cpu: "0.5"
+              memory: "200Mi"
