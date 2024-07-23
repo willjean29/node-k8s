@@ -22,3 +22,9 @@ spec:
             requests:
               cpu: "0.5"
               memory: "200Mi"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 10
+            initialDelaySeconds: 5
