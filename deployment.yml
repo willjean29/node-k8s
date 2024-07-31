@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: node-story
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -24,4 +24,6 @@ spec:
               memory: "500Mi"
       volumes:
         - name: story-volume
-          emptyDir: {}
+          hostPath:
+            path: /data
+            type: DirectoryOrCreate
