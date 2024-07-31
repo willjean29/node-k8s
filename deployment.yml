@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-story-deployment
+spec:
+  selector:
+    matchLabels:
+      app: node-story
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: node-story
+    spec:
+      containers:
+        - name: node-story-container
+          image: 17200082/node-k8s-app:story
+          resources:
+            limits:
+              cpu: "1"
+              memory: "500Mi"
