@@ -32,6 +32,11 @@ app.post('/story', (req, res) => {
   });
 });
 
+app.get('/error', (req, res) => {
+  console.log("error endpoint called")
+  process.exit(1);
+});
+
 app.listen(4000, () => {
   console.log('Server is running on port 4000');
 });

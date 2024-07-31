@@ -14,8 +14,14 @@ spec:
     spec:
       containers:
         - name: node-story-container
-          image: 17200082/node-k8s-app:story
+          image: 17200082/node-k8s-app:storyv1
+          volumeMounts:
+            - mountPath: /app/story
+              name: story-volume
           resources:
             limits:
               cpu: "1"
               memory: "500Mi"
+      volumes:
+        - name: story-volume
+          emptyDir: {}
