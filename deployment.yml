@@ -24,6 +24,5 @@ spec:
               memory: "500Mi"
       volumes:
         - name: story-volume
-          hostPath:
-            path: /data
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: story-host-pvc
