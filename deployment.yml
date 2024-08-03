@@ -17,7 +17,10 @@ spec:
           image: 17200082/node-k8s-app:storyv2
           env:
             - name: STORY_FOLDER
-              value: "story"
+              valueFrom:
+                configMapKeyRef:
+                  name: story-data-configmap
+                  key: folder
           volumeMounts:
             - mountPath: /app/story
               name: story-volume
