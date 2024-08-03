@@ -14,7 +14,10 @@ spec:
     spec:
       containers:
         - name: node-story-container
-          image: 17200082/node-k8s-app:storyv1
+          image: 17200082/node-k8s-app:storyv2
+          env:
+            - name: STORY_FOLDER
+              value: "story"
           volumeMounts:
             - mountPath: /app/story
               name: story-volume
